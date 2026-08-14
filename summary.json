@@ -1,0 +1,9 @@
+{
+  "total_sale": 1529000000.0,
+  "total_recovery": 125711100.0,
+  "outstanding": 1403288900.0,
+  "pending": 35600000.0,
+  "bounced": 1990000.0,
+  "overdue_count": 17,
+  "unsecured": 1367688900.0
+}
