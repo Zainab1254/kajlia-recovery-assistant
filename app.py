@@ -3,10 +3,13 @@ import sqlite3
 import pandas as pd
 import requests
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 KEY = os.getenv("ANTHROPIC_API_KEY")
+if not KEY:
+    try:
+        KEY = st.secrets["ANTHROPIC_API_KEY"]
+    except Exception:
+        KEY = None
 
 st.title("Kajlia Recovery Assistant")
 st.write("36 flats · payment recovery data")
