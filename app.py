@@ -56,7 +56,7 @@ def llm_call(prompt):
         }
     )
     return r.json()["content"][0]["text"]
-
+ 
 
 overdue_data = payments[payments["cheque_status"] == "pending"]
 
@@ -75,11 +75,10 @@ Monthly recovery in crore:
 """
 c4, c5 = st.columns(2)
 with c4:
-    if st.button("Data ye kya keh raha hai", key="btn1"):
+    if st.button("What the data shows", key="btn1"):
 
         prompt = f"""
-    Respond in Roman Urdu (Latin script), NOT Devanagari.
-    Keep technical terms in English: outstanding, recovery, cheque, pending.
+    Respond in English.
 
     {data_text}
 
@@ -89,13 +88,12 @@ with c4:
     No recommendations. No advice. No suggested actions. Do not say what should be done.
     If a number looks unusual compared to the others, point it out.
     """
-        with st.spinner("Soch raha hai..."):
+        with st.spinner("Thinking..."):
             st.write(llm_call(prompt))
 with c5:
-    if st.button("Data mein kya kami hai", key="btn2"):
+    if st.button("What's missing from the data", key="btn2"):
         prompt = f"""
-    Respond in Roman Urdu (Latin script), NOT Devanagari.
-    Keep technical terms in English.
+    Respond in English.
 
     {data_text}
 
@@ -103,5 +101,5 @@ with c5:
     List three things that would be needed to understand the recovery position properly.
     No recommendations. No advice. Only state what data is missing and why it matters. Do not add, subtract, or calculate any numbers yourself. Only use the numbers exactly as given above.
     """
-        with st.spinner("Soch raha hai..."):
+        with st.spinner("Thinking..."):
             st.write(llm_call(prompt))
