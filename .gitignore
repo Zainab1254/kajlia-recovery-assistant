@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 kajlia_final.db
 .streamlit/secrets.toml
+*.ipynb
